@@ -1,0 +1,262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
+		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A6842A8313FC33C200E49356 /* markium.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6842A8613FC33C200E49356 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A6842A8913FC33C200E49356 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A6842A8A13FC33C200E49356 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A6842A8B13FC33C200E49356 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A6842A8E13FC33C200E49356 /* markium-Info.plist */ = {isa = PBXFileReference; path = "markium-Info.plist"; sourceTree = "<group>"; };
+		A6842A9013FC33C200E49356 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A6842A9213FC33C200E49356 /* markium-Prefix.pch */ = {isa = PBXFileReference; path = "markium-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6842A8013FC33C200E49356 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A6842A7813FC33C200E49356 = {
+			isa = PBXGroup;
+			children = (
+				A6842A8C13FC33C200E49356 /* markium */,
+				A6842A8513FC33C200E49356 /* Frameworks */,
+				A6842A8413FC33C200E49356 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A6842A8413FC33C200E49356 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6842A8313FC33C200E49356 /* markium.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6842A8513FC33C200E49356 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6842A8613FC33C200E49356 /* Cocoa.framework */,
+				A6842A8813FC33C200E49356 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6842A8813FC33C200E49356 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6842A8913FC33C200E49356 /* AppKit.framework */,
+				A6842A8A13FC33C200E49356 /* CoreData.framework */,
+				A6842A8B13FC33C200E49356 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A6842A8C13FC33C200E49356 /* markium */ = {
+			isa = PBXGroup;
+			children = (
+				A6842A8D13FC33C200E49356 /* Supporting Files */,
+			);
+			path = markium;
+			sourceTree = "<group>";
+		};
+		A6842A8D13FC33C200E49356 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A6842A8E13FC33C200E49356 /* markium-Info.plist */,
+				A6842A8F13FC33C200E49356 /* InfoPlist.strings */,
+				A6842A9213FC33C200E49356 /* markium-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6842A8213FC33C200E49356 /* markium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6842A9513FC33C200E49356 /* Build configuration list for PBXNativeTarget "markium" */;
+			buildPhases = (
+				A6842A7F13FC33C200E49356 /* Sources */,
+				A6842A8013FC33C200E49356 /* Frameworks */,
+				A6842A8113FC33C200E49356 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = markium;
+			productName = markium;
+			productReference = A6842A8313FC33C200E49356 /* markium.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6842A7A13FC33C200E49356 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Dealer Tire, LLC";
+			};
+			buildConfigurationList = A6842A7D13FC33C200E49356 /* Build configuration list for PBXProject "markium" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A6842A7813FC33C200E49356;
+			productRefGroup = A6842A8413FC33C200E49356 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6842A8213FC33C200E49356 /* markium */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6842A8113FC33C200E49356 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6842A7F13FC33C200E49356 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A6842A8F13FC33C200E49356 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6842A9013FC33C200E49356 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A6842A9313FC33C200E49356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A6842A9413FC33C200E49356 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A6842A9613FC33C200E49356 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
+				INFOPLIST_FILE = "markium/markium-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A6842A9713FC33C200E49356 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
+				INFOPLIST_FILE = "markium/markium-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6842A7D13FC33C200E49356 /* Build configuration list for PBXProject "markium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6842A9313FC33C200E49356 /* Debug */,
+				A6842A9413FC33C200E49356 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6842A9513FC33C200E49356 /* Build configuration list for PBXNativeTarget "markium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6842A9613FC33C200E49356 /* Debug */,
+				A6842A9713FC33C200E49356 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A6842A7A13FC33C200E49356 /* Project object */;
+}

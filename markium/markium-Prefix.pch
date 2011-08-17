@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'markium' target in the 'markium' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
