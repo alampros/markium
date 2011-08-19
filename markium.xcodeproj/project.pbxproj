@@ -9,17 +9,22 @@
 /* Begin PBXBuildFile section */
 		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
 		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
+		A6842ABE13FC444D00E49356 /* markium.m in Sources */ = {isa = PBXBuildFile; fileRef = A6842ABD13FC444D00E49356 /* markium.m */; };
+		A6842B1B13FDBF9A00E49356 /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842B1A13FDBF9A00E49356 /* Adium.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A6842A8313FC33C200E49356 /* markium.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6842A8313FC33C200E49356 /* markium.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6842A8613FC33C200E49356 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A6842A8913FC33C200E49356 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A6842A8A13FC33C200E49356 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A6842A8B13FC33C200E49356 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A6842A8E13FC33C200E49356 /* markium-Info.plist */ = {isa = PBXFileReference; path = "markium-Info.plist"; sourceTree = "<group>"; };
+		A6842A8E13FC33C200E49356 /* markium-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "markium-Info.plist"; sourceTree = "<group>"; };
 		A6842A9013FC33C200E49356 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A6842A9213FC33C200E49356 /* markium-Prefix.pch */ = {isa = PBXFileReference; path = "markium-Prefix.pch"; sourceTree = "<group>"; };
+		A6842A9213FC33C200E49356 /* markium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "markium-Prefix.pch"; sourceTree = "<group>"; };
+		A6842ABC13FC444D00E49356 /* markium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markium.h; path = markium/markium.h; sourceTree = "<group>"; };
+		A6842ABD13FC444D00E49356 /* markium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = markium.m; path = markium/markium.m; sourceTree = "<group>"; };
+		A6842B1A13FDBF9A00E49356 /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +33,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */,
+				A6842B1B13FDBF9A00E49356 /* Adium.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +43,8 @@
 		A6842A7813FC33C200E49356 = {
 			isa = PBXGroup;
 			children = (
+				A6842ABC13FC444D00E49356 /* markium.h */,
+				A6842ABD13FC444D00E49356 /* markium.m */,
 				A6842A8C13FC33C200E49356 /* markium */,
 				A6842A8513FC33C200E49356 /* Frameworks */,
 				A6842A8413FC33C200E49356 /* Products */,
@@ -46,7 +54,7 @@
 		A6842A8413FC33C200E49356 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6842A8313FC33C200E49356 /* markium.bundle */,
+				A6842A8313FC33C200E49356 /* markium.AdiumPlugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +62,7 @@
 		A6842A8513FC33C200E49356 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6842B1A13FDBF9A00E49356 /* Adium.framework */,
 				A6842A8613FC33C200E49356 /* Cocoa.framework */,
 				A6842A8813FC33C200E49356 /* Other Frameworks */,
 			);
@@ -105,7 +114,7 @@
 			);
 			name = markium;
 			productName = markium;
-			productReference = A6842A8313FC33C200E49356 /* markium.bundle */;
+			productReference = A6842A8313FC33C200E49356 /* markium.AdiumPlugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -115,7 +124,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Dealer Tire, LLC";
+				ORGANIZATIONNAME = "Aaron Lampros";
 			};
 			buildConfigurationList = A6842A7D13FC33C200E49356 /* Build configuration list for PBXProject "markium" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -150,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6842ABE13FC444D00E49356 /* markium.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,24 +225,34 @@
 		A6842A9613FC33C200E49356 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/alampros/Library/Developer/Xcode/DerivedData/Adium-ckfluatcrgjvwmbgnkebohwjrxuk/Build/Products/Debug\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
 				INFOPLIST_FILE = "markium/markium-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = bundle;
+				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Debug;
 		};
 		A6842A9713FC33C200E49356 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/alampros/Library/Developer/Xcode/DerivedData/Adium-ckfluatcrgjvwmbgnkebohwjrxuk/Build/Products/Debug\"",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
 				INFOPLIST_FILE = "markium/markium-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = bundle;
+				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Release;
 		};
@@ -255,6 +275,7 @@
 				A6842A9713FC33C200E49356 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
