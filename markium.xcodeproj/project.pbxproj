@@ -99,6 +99,22 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		A6C18E3C13FEC3BD00C85423 /* Build Directory */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = A6C18E3D13FEC3BE00C85423 /* Build configuration list for PBXLegacyTarget "Build Directory" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = "Build Directory";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build Directory";
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		A6842A8213FC33C200E49356 /* markium */ = {
 			isa = PBXNativeTarget;
@@ -139,6 +155,7 @@
 			projectRoot = "";
 			targets = (
 				A6842A8213FC33C200E49356 /* markium */,
+				A6C18E3C13FEC3BD00C85423 /* Build Directory */,
 			);
 		};
 /* End PBXProject section */
@@ -194,7 +211,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -203,10 +220,25 @@
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
 				);
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "\"$(HOME)/Library/Application Support/Adium 2.0/PlugIns/\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					suppress,
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_NAME = markium;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
+				VERSION_INFO_BUILDER = alampros;
+				VERSION_INFO_FILE = "$(PRODUCT_NAME)_vers.c";
+				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Debug;
 		};
@@ -221,7 +253,7 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(ADIUM)/build/Debug/\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -230,9 +262,24 @@
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
 				);
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "\"$(HOME)/Library/Application Support/Adium 2.0/PlugIns/\"";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					suppress,
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_NAME = markium;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
+				VERSION_INFO_BUILDER = alampros;
+				VERSION_INFO_FILE = "$(PRODUCT_NAME)_vers.c";
+				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Release;
 		};
@@ -276,6 +323,33 @@
 			};
 			name = Release;
 		};
+		A6C18E3E13FEC3BE00C85423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6C18E3F13FEC3BE00C85423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -296,6 +370,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A6C18E3D13FEC3BE00C85423 /* Build configuration list for PBXLegacyTarget "Build Directory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6C18E3E13FEC3BE00C85423 /* Debug */,
+				A6C18E3F13FEC3BE00C85423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

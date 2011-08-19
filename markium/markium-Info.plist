@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5</string>
+	<string>0.1</string>
 	<key>CFBundleSignature</key>
 	<string>AdIM</string>
 	<key>CFBundleVersion</key>
-	<string>1.5</string>
+	<string>0.1</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2011 Aaron Lampros. All rights reserved.</string>
 	<key>NSPrincipalClass</key>

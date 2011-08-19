@@ -7,46 +7,12 @@
 //
 
 #import "markium.h"
+#import <AdiumContentFiltering.h>
+#import <Adium/ESDebugAILog.h>
+#import <Adium/AIContentMessage.h>
 
 
 @implementation markium
-
-- (void)installPlugin {
-    NSLog(@"Markium installed");
-    //[[adium contentController] registerHTMLContentFilter:self ofType:AIFilterMessageDisplay direction:AIFilterIncoming];
-    [[adium contentController] registerHTMLContentFilter:self direction:AIFilterIncoming];
-    [[adium contentController] registerHTMLContentFilter:self direction:AIFilterOutgoing];
-}
-
-- (void)uninstallPlugin {
-    NSLog(@"Markium uninstalled");
-    [[adium contentController] unregisterHTMLContentFilter:self];
-}
-
-- (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content
-{
-    return [inHTMLString autorelease];
-}
-
-
-
-
-- (CGFloat)filterPriority
-{
-	return DEFAULT_FILTER_PRIORITY;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 - (NSString *)pluginAuthor
 {
@@ -55,13 +21,42 @@
 
 - (NSString *)pluginVersion
 {
-	return @"1.5hg";
+	return @"0.1";
 }
 
 - (NSString *)pluginDescription
 {
-	return @"This plugin does almost nothing right now.";
+	return @"TOP SECRET.";
 }
+
+- (NSString *)pluginURL
+{
+	return @"http://github.com/";
+}
+
+- (void)installPlugin {
+    [[adium contentController] registerHTMLContentFilter:self direction:AIFilterIncoming];
+    NSLog(@"Markium installed");
+}
+
+- (void)uninstallPlugin {
+    [[adium contentController] unregisterHTMLContentFilter:self];
+    NSLog(@"Markium uninstalled");
+}
+
+- (CGFloat)filterPriority {
+    return LOW_FILTER_PRIORITY;
+}
+
+
+- (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject *)content
+{
+    NSLog(@"body: %@", inHTMLString);
+    NSLog(@"Recieved text");
+    NSMutableString *newMessage = [[[NSMutableString alloc] initWithString:@"heythere"] autorelease];
+    return newMessage;
+}
+
 
 
 @end

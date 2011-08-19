@@ -7,22 +7,8 @@
 //
 
 #import <Adium/AIPlugin.h>
-#import <Adium/AISharedAdium.h>
 #import <Adium/AIContentControllerProtocol.h>
 
-//@protocol AIContentFilter;
+@interface markium : AIPlugin <AIHTMLContentFilter, AIContentFilter> {}
 
-//
-//@interface markium : AIPlugin <AIContentFilter> {
-//    
-//}
-//
-//@end
-
-
-@protocol AIHTMLContentFilter;
-
-@interface markium : AIPlugin <AIHTMLContentFilter> {
-    
-}
 @end
