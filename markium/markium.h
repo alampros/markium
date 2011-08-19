@@ -9,6 +9,5 @@
 #import <Adium/AIPlugin.h>
 #import <Adium/AIContentControllerProtocol.h>
 
-@interface markium : AIPlugin <AIHTMLContentFilter, AIContentFilter> {}
-
+@interface markium : AIPlugin <AIHTMLContentFilter, AIContentFilter>{}
 @end

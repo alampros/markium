@@ -6,10 +6,14 @@
 //  Copyright (c) 2011 Dealer Tire, LLC. All rights reserved.
 //
 
+#import <Adium/AIContentControllerProtocol.h>
 #import "markium.h"
-#import <AdiumContentFiltering.h>
-#import <Adium/ESDebugAILog.h>
+#import "CBActionSupportPlugin.h"
+#import <Adium/AIContentObject.h>
+#import <Adium/AIListObject.h>
 #import <Adium/AIContentMessage.h>
+#import <AdiumContentFiltering.h>
+
 
 
 @implementation markium
@@ -35,12 +39,18 @@
 }
 
 - (void)installPlugin {
-    [[adium contentController] registerHTMLContentFilter:self direction:AIFilterIncoming];
-    NSLog(@"Markium installed");
+    NSLog(@"Markium installed.");
+    [adium.contentController registerContentFilter:self ofType:AIFilterMessageDisplay direction:AIFilterOutgoing];
+    [adium.contentController registerContentFilter:self ofType:AIFilterMessageDisplay direction:AIFilterIncoming];
+    [adium.contentController registerHTMLContentFilter:self direction:AIFilterOutgoing];
+    [adium.contentController registerHTMLContentFilter:self direction:AIFilterIncoming];
+    NSLog(@"Markium registered.");
+    
 }
 
 - (void)uninstallPlugin {
-    [[adium contentController] unregisterHTMLContentFilter:self];
+	[adium.contentController unregisterHTMLContentFilter:self];
+	[adium.contentController unregisterContentFilter:self];
     NSLog(@"Markium uninstalled");
 }
 
@@ -48,13 +58,16 @@
     return LOW_FILTER_PRIORITY;
 }
 
-
-- (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject *)content
+- (NSAttributedString *)filterAttributedString:(NSAttributedString *)inAttributedString context:(id)context;
 {
-    NSLog(@"body: %@", inHTMLString);
-    NSLog(@"Recieved text");
-    NSMutableString *newMessage = [[[NSMutableString alloc] initWithString:@"heythere"] autorelease];
-    return newMessage;
+    NSLog(@"Recieved text %@",inAttributedString);
+	return inAttributedString;
+}
+
+- (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
+{
+    NSLog(@"Recieved HTML STRING!!!");
+    return inHTMLString;
 }
 
 
