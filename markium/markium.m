@@ -67,6 +67,7 @@
 - (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
 {
     NSLog(@"Recieved HTML STRING!!!");
+    
     return inHTMLString;
 }
 

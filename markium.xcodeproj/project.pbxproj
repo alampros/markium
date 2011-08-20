@@ -10,7 +10,6 @@
 		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
 		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
 		A6842ABE13FC444D00E49356 /* markium.m in Sources */ = {isa = PBXBuildFile; fileRef = A6842ABD13FC444D00E49356 /* markium.m */; };
-		A6842B1B13FDBF9A00E49356 /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842B1A13FDBF9A00E49356 /* Adium.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		A6842A9213FC33C200E49356 /* markium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "markium-Prefix.pch"; sourceTree = "<group>"; };
 		A6842ABC13FC444D00E49356 /* markium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markium.h; path = markium/markium.h; sourceTree = "<group>"; };
 		A6842ABD13FC444D00E49356 /* markium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = markium.m; path = markium/markium.m; sourceTree = "<group>"; };
-		A6842B1A13FDBF9A00E49356 /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +31,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */,
-				A6842B1B13FDBF9A00E49356 /* Adium.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +59,6 @@
 		A6842A8513FC33C200E49356 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6842B1A13FDBF9A00E49356 /* Adium.framework */,
 				A6842A8613FC33C200E49356 /* Cocoa.framework */,
 				A6842A8813FC33C200E49356 /* Other Frameworks */,
 			);
@@ -98,22 +94,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
-/* Begin PBXLegacyTarget section */
-		A6C18E3C13FEC3BD00C85423 /* Build Directory */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = A6C18E3D13FEC3BE00C85423 /* Build configuration list for PBXLegacyTarget "Build Directory" */;
-			buildPhases = (
-			);
-			buildToolPath = /usr/bin/make;
-			dependencies = (
-			);
-			name = "Build Directory";
-			passBuildSettingsInEnvironment = 1;
-			productName = "Build Directory";
-		};
-/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		A6842A8213FC33C200E49356 /* markium */ = {
@@ -155,7 +135,6 @@
 			projectRoot = "";
 			targets = (
 				A6842A8213FC33C200E49356 /* markium */,
-				A6C18E3C13FEC3BD00C85423 /* Build Directory */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +180,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "\"$(ADIUM)/build/Debug/\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -211,7 +191,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -221,13 +201,11 @@
 					"\"$(ADIUM)/Plugins\"",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
-				INSTALL_PATH = "\"$(HOME)/Library/Application Support/Adium 2.0/PlugIns/\"";
+				INSTALL_PATH = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
-					"-undefined",
-					suppress,
 					"-undefined",
 					dynamic_lookup,
 				);
@@ -253,7 +231,7 @@
 				FRAMEWORK_SEARCH_PATHS = "\"$(ADIUM)/build/Debug/\"";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -263,12 +241,11 @@
 					"\"$(ADIUM)/Plugins\"",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
-				INSTALL_PATH = "\"$(HOME)/Library/Application Support/Adium 2.0/PlugIns/\"";
+				INSTALL_PATH = "";
 				MACH_O_TYPE = mh_bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
-					"-undefined",
-					suppress,
 					"-undefined",
 					dynamic_lookup,
 				);
@@ -297,8 +274,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
 				INFOPLIST_FILE = "markium/markium-Info.plist";
-				INSTALL_PATH = "\"$(HOME)/Library/Application Support/Adium 2.0/PlugIns/\"";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = AdiumPlugin;
 			};
 			name = Debug;
@@ -317,36 +295,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
 				INFOPLIST_FILE = "markium/markium-Info.plist";
-				INSTALL_PATH = "\"$(HOME)/Library/Application Support/Adium 2.0/PlugIns/\"";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = AdiumPlugin;
-			};
-			name = Release;
-		};
-		A6C18E3E13FEC3BE00C85423 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				DEBUGGING_SYMBOLS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		A6C18E3F13FEC3BE00C85423 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -370,14 +322,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		A6C18E3D13FEC3BE00C85423 /* Build configuration list for PBXLegacyTarget "Build Directory" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A6C18E3E13FEC3BE00C85423 /* Debug */,
-				A6C18E3F13FEC3BE00C85423 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
