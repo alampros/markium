@@ -81,10 +81,12 @@
     outputPipe = [[NSPipe alloc] init];
     
     [task setLaunchPath:mdExecPath];
-    [task setArguments:[NSArray arrayWithObjects: @"--nonotes", @"--nolabels", @"--nosmart", nil]];
+//    [task setArguments:[NSArray arrayWithObjects: @"--nonotes", @"--nolabels", @"--nosmart", nil]];
 
     [task setStandardOutput: outputPipe];
+    [task setStandardInput:[NSPipe pipe]];
     [task setStandardInput: inputPipe];
+    [task setStandardError:outputPipe];
     
     [task launch];
     
@@ -93,15 +95,16 @@
     [fileToWrite writeData:[inHTMLString dataUsingEncoding:NSUTF8StringEncoding]];
 
     [fileToWrite closeFile];
-
+    
+    [task waitUntilExit];
     markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
 
     markedText = [[NSString alloc] initWithData: markedResult encoding: NSASCIIStringEncoding];
 
-    [markedText release];
-    [task release];
-    [inputPipe release];
-    [outputPipe release];
+//    [markedText autorelease];
+//    [task autorelease];
+//    [inputPipe autorelease];
+//    [outputPipe autorelease];
     
     NSLog(@"Launched task");
     
