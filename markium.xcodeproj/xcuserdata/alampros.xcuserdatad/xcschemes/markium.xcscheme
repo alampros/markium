@@ -13,6 +13,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8DD76FA90486AB0100D96B5E"
+               BuildableName = "multimarkdown"
+               BlueprintName = "MultiMarkdown"
+               ReferencedContainer = "container:support/multimarkdown/MultiMarkdown.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4AFA466113E3624F00CFA132"
+               BuildableName = "libMultiMarkdown.a"
+               BlueprintName = "libMultiMarkdown"
+               ReferencedContainer = "container:support/multimarkdown/MultiMarkdown.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "A6842A8213FC33C200E49356"
                BuildableName = "markium.AdiumPlugin"
                BlueprintName = "markium"

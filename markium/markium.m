@@ -9,10 +9,7 @@
 #import <Adium/AIContentControllerProtocol.h>
 #import "markium.h"
 #import "CBActionSupportPlugin.h"
-#import <Adium/AIContentObject.h>
-#import <Adium/AIListObject.h>
 #import <Adium/AIContentMessage.h>
-#import <AdiumContentFiltering.h>
 
 
 
@@ -25,7 +22,7 @@
 
 - (NSString *)pluginVersion
 {
-	return @"0.1";
+	return @"0.1.1";
 }
 
 - (NSString *)pluginDescription
@@ -60,15 +57,55 @@
 
 - (NSAttributedString *)filterAttributedString:(NSAttributedString *)inAttributedString context:(id)context;
 {
-    NSLog(@"Recieved text %@",inAttributedString);
 	return inAttributedString;
 }
 
 - (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
 {
-    NSLog(@"Recieved HTML STRING!!!");
+
+    NSBundle *pluginBundle = [NSBundle bundleWithIdentifier:@"com.alampros.markium"];
+    NSString *mdExecPath = [pluginBundle pathForResource:@"multimarkdown" ofType:@""];
+//    NSLog(@"%@",mdExecPath);
     
-    return inHTMLString;
+    NSTask *task;
+    NSData *markedResult;//*sortResult;
+    // Data object for grabbing marked text
+    
+    NSFileHandle *fileToWrite;
+    // Handle to standard input for pipe
+    NSPipe *inputPipe, *outputPipe;
+    NSString *markedText;
+
+    task = [[NSTask alloc] init];
+    inputPipe = [[NSPipe alloc] init];
+    outputPipe = [[NSPipe alloc] init];
+    
+    [task setLaunchPath:mdExecPath];
+    [task setArguments:[NSArray arrayWithObjects: @"--nonotes", @"--nolabels", @"--nosmart", nil]];
+
+    [task setStandardOutput: outputPipe];
+    [task setStandardInput: inputPipe];
+    
+    [task launch];
+    
+    fileToWrite = [inputPipe fileHandleForWriting];
+
+    [fileToWrite writeData:[inHTMLString dataUsingEncoding:NSUTF8StringEncoding]];
+
+    [fileToWrite closeFile];
+
+    markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
+
+    markedText = [[NSString alloc] initWithData: markedResult encoding: NSASCIIStringEncoding];
+
+    [markedText release];
+    [task release];
+    [inputPipe release];
+    [outputPipe release];
+    
+    NSLog(@"Launched task");
+    
+    return markedText;
 }
 
 

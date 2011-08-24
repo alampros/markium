@@ -7,12 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A60E3DA1140022BA00F2ED7B /* markiumPluginPrefs.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60E3DA0140022B900F2ED7B /* markiumPluginPrefs.xib */; };
 		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
 		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
 		A6842ABE13FC444D00E49356 /* markium.m in Sources */ = {isa = PBXBuildFile; fileRef = A6842ABD13FC444D00E49356 /* markium.m */; };
+		A6B37E2314006D7700538C54 /* multimarkdown in Resources */ = {isa = PBXBuildFile; fileRef = A6B37E2214006D7700538C54 /* multimarkdown */; };
+		A6B37E2C14006DD000538C54 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = A6B37E2B14006DD000538C54 /* main.c */; };
+		A6B37E2E14006DD000538C54 /* multimarkdown.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6B37E2D14006DD000538C54 /* multimarkdown.1 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A6B37E2614006DD000538C54 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				A6B37E2E14006DD000538C54 /* multimarkdown.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A60E3DA0140022B900F2ED7B /* markiumPluginPrefs.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markiumPluginPrefs.xib; sourceTree = "<group>"; };
 		A6842A8313FC33C200E49356 /* markium.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6842A8613FC33C200E49356 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A6842A8913FC33C200E49356 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -23,6 +41,10 @@
 		A6842A9213FC33C200E49356 /* markium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "markium-Prefix.pch"; sourceTree = "<group>"; };
 		A6842ABC13FC444D00E49356 /* markium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markium.h; path = markium/markium.h; sourceTree = "<group>"; };
 		A6842ABD13FC444D00E49356 /* markium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = markium.m; path = markium/markium.m; sourceTree = "<group>"; };
+		A6B37E2214006D7700538C54 /* multimarkdown */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = multimarkdown; path = "../../../Users/alampros/Library/Developer/Xcode/DerivedData/MultiMarkdown-gszgejiroxhpemgzzobqlzmdqlmn/Build/Products/Debug/multimarkdown"; sourceTree = "<group>"; };
+		A6B37E2814006DD000538C54 /* multimarkdown */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = multimarkdown; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6B37E2B14006DD000538C54 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A6B37E2D14006DD000538C54 /* multimarkdown.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = multimarkdown.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,15 +56,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6B37E2514006DD000538C54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A6842A7813FC33C200E49356 = {
 			isa = PBXGroup;
 			children = (
+				A60E3DA0140022B900F2ED7B /* markiumPluginPrefs.xib */,
 				A6842ABC13FC444D00E49356 /* markium.h */,
 				A6842ABD13FC444D00E49356 /* markium.m */,
+				A6B37E2214006D7700538C54 /* multimarkdown */,
 				A6842A8C13FC33C200E49356 /* markium */,
+				A6B37E2A14006DD000538C54 /* multimarkdown */,
 				A6842A8513FC33C200E49356 /* Frameworks */,
 				A6842A8413FC33C200E49356 /* Products */,
 			);
@@ -52,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A6842A8313FC33C200E49356 /* markium.AdiumPlugin */,
+				A6B37E2814006DD000538C54 /* multimarkdown */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +126,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A6B37E2A14006DD000538C54 /* multimarkdown */ = {
+			isa = PBXGroup;
+			children = (
+				A6B37E2B14006DD000538C54 /* main.c */,
+				A6B37E2D14006DD000538C54 /* multimarkdown.1 */,
+			);
+			path = multimarkdown;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +154,23 @@
 			productName = markium;
 			productReference = A6842A8313FC33C200E49356 /* markium.AdiumPlugin */;
 			productType = "com.apple.product-type.bundle";
+		};
+		A6B37E2714006DD000538C54 /* multimarkdown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6B37E2F14006DD000538C54 /* Build configuration list for PBXNativeTarget "multimarkdown" */;
+			buildPhases = (
+				A6B37E2414006DD000538C54 /* Sources */,
+				A6B37E2514006DD000538C54 /* Frameworks */,
+				A6B37E2614006DD000538C54 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = multimarkdown;
+			productName = multimarkdown;
+			productReference = A6B37E2814006DD000538C54 /* multimarkdown */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -135,6 +194,7 @@
 			projectRoot = "";
 			targets = (
 				A6842A8213FC33C200E49356 /* markium */,
+				A6B37E2714006DD000538C54 /* multimarkdown */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */,
+				A60E3DA1140022BA00F2ED7B /* markiumPluginPrefs.xib in Resources */,
+				A6B37E2314006D7700538C54 /* multimarkdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +218,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842ABE13FC444D00E49356 /* markium.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6B37E2414006DD000538C54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6B37E2C14006DD000538C54 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +267,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"“$(BUILT_PRODUCTS_DIR)”",
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
 				);
@@ -237,6 +308,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
+					"“$(BUILT_PRODUCTS_DIR)”",
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
 				);
@@ -264,9 +336,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"“$(BUILT_PRODUCTS_DIR)”/**",
 					"$(inherited)",
 					"\"$(ADIUM)/build/Debug/\"",
-					"\"/Users/alampros/Library/Developer/Xcode/DerivedData/Adium-ckfluatcrgjvwmbgnkebohwjrxuk/Build/Products/Debug\"",
 					"\"$(SRCROOT)\"",
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
@@ -275,7 +347,17 @@
 				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
 				INFOPLIST_FILE = "markium/markium-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/support\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-undefined",
+					dynamic_lookup,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "“$(BUILT_PRODUCTS_DIR)”/**";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = AdiumPlugin;
 			};
@@ -285,9 +367,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"“$(BUILT_PRODUCTS_DIR)”/**",
 					"$(inherited)",
 					"\"$(ADIUM)/build/Debug/\"",
-					"\"/Users/alampros/Library/Developer/Xcode/DerivedData/Adium-ckfluatcrgjvwmbgnkebohwjrxuk/Build/Products/Debug\"",
 					"\"$(SRCROOT)\"",
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
@@ -296,9 +378,40 @@
 				GCC_PREFIX_HEADER = "markium/markium-Prefix.pch";
 				INFOPLIST_FILE = "markium/markium-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Adium 2.0/PlugIns/";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/support\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-undefined",
+					dynamic_lookup,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "“$(BUILT_PRODUCTS_DIR)”/**";
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = AdiumPlugin;
+			};
+			name = Release;
+		};
+		A6B37E3014006DD000538C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A6B37E3114006DD000538C54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -322,6 +435,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A6B37E2F14006DD000538C54 /* Build configuration list for PBXNativeTarget "multimarkdown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6B37E3014006DD000538C54 /* Debug */,
+				A6B37E3114006DD000538C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
