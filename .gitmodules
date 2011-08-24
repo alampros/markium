@@ -1,3 +1,0 @@
-[submodule "support/multimarkdown"]
-	path = support/multimarkdown
-	url = https://github.com/alampros/peg-multimarkdown.git
