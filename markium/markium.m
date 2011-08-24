@@ -62,7 +62,7 @@
 
 - (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
 {
-
+    
     NSBundle *pluginBundle = [NSBundle bundleWithIdentifier:@"com.alampros.markium"];
     NSString *mdExecPath = [pluginBundle pathForResource:@"multimarkdown" ofType:@""];
 //    NSLog(@"%@",mdExecPath);
@@ -81,13 +81,13 @@
     outputPipe = [[NSPipe alloc] init];
     
     [task setLaunchPath:mdExecPath];
-//    [task setArguments:[NSArray arrayWithObjects: @"--nonotes", @"--nolabels", @"--nosmart", nil]];
+    [task setArguments:[NSArray arrayWithObjects: @"--nonotes", @"--nolabels", @"--nosmart", nil]];
 
     [task setStandardOutput: outputPipe];
     [task setStandardInput:[NSPipe pipe]];
     [task setStandardInput: inputPipe];
     [task setStandardError:outputPipe];
-    
+    [task waitUntilExit];
     [task launch];
     
     fileToWrite = [inputPipe fileHandleForWriting];
@@ -96,17 +96,9 @@
 
     [fileToWrite closeFile];
     
-    [task waitUntilExit];
     markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
 
-    markedText = [[NSString alloc] initWithData: markedResult encoding: NSASCIIStringEncoding];
-
-//    [markedText autorelease];
-//    [task autorelease];
-//    [inputPipe autorelease];
-//    [outputPipe autorelease];
-    
-    NSLog(@"Launched task");
+    markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
     
     return markedText;
 }
