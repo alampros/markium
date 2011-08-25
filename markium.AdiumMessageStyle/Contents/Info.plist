@@ -23,9 +23,9 @@
 	<key>ShowsUserIcons</key>
 	<true />
 	<key>DefaultVariant</key>
-	<string>1 Big Header</string>
+	<string>3.2 Big Header with User Icons and Hover-Time</string>
 	<key>AllowTextColors</key>
-	<false/>
+	<true/>
 	<key>DisableCustomBackground</key>
 	<true />
 	<key>DefaultBackgroundColor</key>

@@ -1,9 +1,30 @@
+.highlight pre {
+	font: 12px 'Bitstream Vera Sans Mono','Courier',monospace !important;
+	margin: 1em 0;
+	background-color: #EEE;
+	border: 1px solid #DDD;
+	padding: 5px;
+	overflow: auto;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.07) 0 1px 2px inset;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #444;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
 code {
 	font: 12px 'Bitstream Vera Sans Mono','Courier',monospace !important;
 	background-color: ghostWhite;
 	color: #444;
 	padding: 0 .2em;
 	border: 1px solid #DEDEDE;
+}
+
+br {
+	line-height:2px;
+	height:2px;
 }
 
 .c{color:#998;font-style:italic;}

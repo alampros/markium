@@ -1,7 +1,18 @@
-Testing **some** inline
-`code` blocks
+Testing **some** inline `code` blocks
 ```
 this is code
 var awesome = <br>
 ```
 did it work?
+
+```js
+var obj = new Object();
+obj.prop = function(param, param2) {
+	return true;
+}
+if (typeof obj === "undefined") {
+	alert("something is really wrong.");
+} else {
+	doSomethingAWESOME("!");
+}
+```

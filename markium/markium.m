@@ -91,15 +91,28 @@
     [task launch];
     
     fileToWrite = [inputPipe fileHandleForWriting];
-
-    [fileToWrite writeData:[content.message.string dataUsingEncoding:NSUTF8StringEncoding]];
-
+    
+    NSString *messageStr = [NSString stringWithString:content.messageString];    
+    NSLog(@"INPUT:\n%@\n----------\n\n",messageStr);
+    NSLog(@"inHTML:\n%@\n----------\n\n",inHTMLString);
+    
+    [fileToWrite writeData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+//    NSLog(@"INPOUT:%@",content.messageString);
+//    [fileToWrite writeData:[content.messageString dataUsingEncoding:NSUTF8StringEncoding]];
+    
     [fileToWrite closeFile];
     
     markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
-
+    
+    
     markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
-//    NSLog(@"%@",markedText);
+    
+    NSLog(@"MARKED:%@",markedText);
+    
+    markedText = [markedText stringByReplacingOccurrencesOfString:@"\r" withString:@"<br/>"];
+    
+    
+    NSLog(@"MARKED (modified):\n%@\n----------\n\n",markedText);
     return markedText;
 }
 
