@@ -1,0 +1,338 @@
+/*Project:GAIA MessageView */
+
+/*
+Created by Florian Pichler (pichfl@einserver.de)
+
+History:
+2007-07-22 - v1.0	//Final Release
+2007-07-21 - v0.5	//Bugfixes
+2007-07-21 - v0.4	//First Release
+2007-07-21 - v0.3	//Link-Buttons
+2007-07-20 - v0.2 	//Emoticons, Header
+2007-07-19 - v0.1 	//First Beta
+*/
+
+/*Global Reset*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:100%;
+	font-family:inherit;
+	vertical-align:baseline;
+}
+
+:focus{
+	outline:0;
+}
+
+body{
+	line-height:1.5em;
+	color:#333;
+	background:#fff;
+}
+
+ol, ul{
+	list-style:none;
+}
+
+table{
+	border-collapse:separate;
+	border-spacing:0;
+}
+
+caption, th, td{
+	text-align:left;
+	font-weight:normal;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after{
+	content:"";
+}
+
+blockquote, q{
+	quotes:"" "";
+}
+
+a,
+a:link{
+	color:inherit;
+	text-decoration:underline;
+}
+
+a:visited{
+	
+}
+
+a:focus{
+	
+}
+
+a:hover{
+	
+}
+
+a:active{
+	
+}
+
+/*Header*/
+
+#wrap{
+	position:relative;
+}
+
+#header{
+	position:fixed;
+	top:0;
+	right:0;
+	left:0;
+	min-height:90px;
+	background:url(images/header.bg.png) 0 0 repeat-x;
+	z-index:500;
+	width:100%;
+}
+
+#header div.inner{
+	position:relative;
+	min-height:90px;
+	background:url(images/header.ornament.png) 0 0 no-repeat;
+}
+
+#header div.birdy{
+	position:relative;
+	min-height:88px;
+	margin:0px 0;
+	padding:1px 0;
+	background:url(images/header.birdy.png) 100% 0 no-repeat;
+}
+
+img#bar,
+#stopclickingme{
+	width:100%;
+	height:16px;
+	position:absolute;
+	top:0;
+	right:0;
+	left:0;
+	z-index:900;
+}
+
+#stopclickingme{
+	background:url(images/stopclickingme.png) 0 0 repeat;
+	z-index:1000;
+	
+}
+
+#header h1{
+	margin:-1px 0;
+	padding:30px 25px 0;
+	font-size:18px;
+	line-height:1em;
+	font-family:"HelveticaNeue-Light", "Helvetica Neue", Helvetica;
+	color:#616161;
+	text-shadow:#989898 0px 0px 5px;
+}
+
+/*Messages General*/
+
+.message{
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+.message.old{
+	position:relative;
+	margin:0;
+	padding:0;
+	opacity:.33;
+}
+
+.message .wrap{
+	padding:1px 0;
+}
+
+.message .bottom{
+	padding:0 25px;
+}
+
+.message .inner{
+	position:relative;
+	margin:.6em 0 .6em;
+	padding:.01em 0px .01em;
+}
+
+.message .icon{
+	position:absolute;
+	top:.35em;
+	margin:0;
+	padding:0;
+	line-height:6px;
+}
+
+.message .icon img.simple{
+	display:inline;
+}
+
+.message .icon img.user{
+	display:none;
+}
+
+.message .text,
+.status .text{
+	margin:0 62px 0 34px;
+	padding:0;
+	overflow:auto;
+	border:0;
+}
+
+.message .text img{
+	line-height:1em;
+	vertical-align:bottom;
+}
+
+.message .time,
+.status .time{
+	width:62px;
+	margin:0;
+	padding:0;
+	position:absolute;
+	top:0em;
+	right:-25px;
+	overflow:hidden;
+	background:transparent;
+}
+
+.clear{
+	float:none;
+	clear:both;
+	width:0;
+	overflow:hidden;
+	background:transparent;
+}
+
+/*INCOMING!!!!111einseinsself //Sry, musste einfach sein*/
+
+.in{
+	z-index:300;
+	color:#717171;
+	background:#fafafa;
+}
+
+.in .top{
+	margin:-3px 0 0;
+	padding:3px 0 0;
+	background:url(images/in.top.png) 0 0 repeat-x;
+}
+
+.in .bottom{
+	margin:0 0 -3px;
+	padding:0 25px 3px;
+	background:url(images/in.bottom.png) 0 100% repeat-x;
+}
+
+.in .time{
+	color:#c8c8c8;
+}
+
+/*Outgoing*/
+
+.out{
+	margin:-1px 0 0;
+	padding:1px 0 0;
+	z-index:100;
+	color:#565656;
+	background:#f5f5f5 url(images/out.png) 0 0 repeat-x;
+}
+
+.out .bottom{
+	margin:0 0 -1px;
+	padding:1px 25px 2px;
+	background:url(images/out.bottom.png) 0 100% repeat-x;
+}
+
+.out .time{
+	color:#ababab;
+}
+
+/*Status*/
+
+div.status{
+	position:relative;
+	margin:0;
+	padding:2px 25px 3px;
+	z-index:200;
+	border:0;
+	background:#0e0e0e url(images/status.png) 0 0 repeat-x;
+	color:#fff;
+	font-size:11px;
+	font-family:"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.status h2{
+	color:#93ece8;
+}
+
+.status .time{
+	top:2px;
+	right:0;
+	color:#fafafa;
+}
+
+a.button{
+	display:inline-block;
+	position:relative;
+	top:1em;
+	margin:-1em 0 0;
+	line-height:20px;
+}
+
+a.button span.js{
+	display:inline-block;
+	width:30px;
+	height:20px;
+	overflow:hidden;
+	background:url(images/url.png) 0 0 no-repeat;
+}
+
+a.button:active span.js{
+	background:url(images/url.click.png) 0 0 no-repeat;
+}
+
+a.button span.rep{
+	opacity:0;
+}
+
+.tool-tip{
+	z-index:1000;
+	color:#fff;
+	font-weight:bold;
+	font-size:10px;
+}
+
+.tool-title{
+	color:#93ece8;
+	padding:1px 3px 0;
+	background:url(images/tool-tip.png) 100% 0 no-repeat;
+	text-shadow:#000 0 1px 1px;
+}
+
+.tool-text{
+	padding:0 3px 1px;
+	background:url(images/tool-tip.png) 0% 100% no-repeat;
+	text-shadow:#000 0 1px 1px;
+}
+
