@@ -64,7 +64,7 @@
 {
     
     NSBundle *pluginBundle = [NSBundle bundleWithIdentifier:@"com.alampros.markium"];
-    NSString *mdExecPath = [pluginBundle pathForResource:@"multimarkdown" ofType:@""];
+    NSString *mdExecPath = [pluginBundle pathForResource:@"redcarpet_w" ofType:@"rb"];
 //    NSLog(@"%@",mdExecPath);
     
     NSTask *task;
@@ -81,7 +81,7 @@
     outputPipe = [[NSPipe alloc] init];
     
     [task setLaunchPath:mdExecPath];
-    [task setArguments:[NSArray arrayWithObjects: @"-x", @"--nonotes", @"--nolabels", @"--nosmart", @"--process-html", nil]];
+//    [task setArguments:[NSArray arrayWithObjects: @"-x", @"--nonotes", @"--nolabels", @"--nosmart", @"--process-html", nil]];
 
     [task setStandardOutput: outputPipe];
     [task setStandardInput:[NSPipe pipe]];
@@ -99,7 +99,7 @@
     markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
 
     markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
-    
+//    NSLog(@"%@",markedText);
     return markedText;
 }
 

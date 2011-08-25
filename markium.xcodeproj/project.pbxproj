@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A636F4ED14053DEF00EDB6EF /* multimarkdown in Resources */ = {isa = PBXBuildFile; fileRef = A636F4EC14053DEF00EDB6EF /* multimarkdown */; };
 		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
 		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
 		A6842ABE13FC444D00E49356 /* markium.m in Sources */ = {isa = PBXBuildFile; fileRef = A6842ABD13FC444D00E49356 /* markium.m */; };
+		A6D929A01406BF6100ACD722 /* redcarpet_w.rb in Resources */ = {isa = PBXBuildFile; fileRef = A6D9299F1406BF6100ACD722 /* redcarpet_w.rb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A636F4EC14053DEF00EDB6EF /* multimarkdown */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = multimarkdown; path = markium/multimarkdown; sourceTree = "<group>"; };
 		A6842A8313FC33C200E49356 /* markium.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6842A8613FC33C200E49356 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A6842A8913FC33C200E49356 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -25,6 +24,7 @@
 		A6842A9213FC33C200E49356 /* markium-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "markium-Prefix.pch"; sourceTree = "<group>"; };
 		A6842ABC13FC444D00E49356 /* markium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markium.h; path = markium/markium.h; sourceTree = "<group>"; };
 		A6842ABD13FC444D00E49356 /* markium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = markium.m; path = markium/markium.m; sourceTree = "<group>"; };
+		A6D9299F1406BF6100ACD722 /* redcarpet_w.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = redcarpet_w.rb; path = markium/redcarpet_w.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 			children = (
 				A6842ABC13FC444D00E49356 /* markium.h */,
 				A6842ABD13FC444D00E49356 /* markium.m */,
-				A636F4EC14053DEF00EDB6EF /* multimarkdown */,
+				A6D9299F1406BF6100ACD722 /* redcarpet_w.rb */,
 				A6842A8C13FC33C200E49356 /* markium */,
 				A6842A8513FC33C200E49356 /* Frameworks */,
 				A6842A8413FC33C200E49356 /* Products */,
@@ -148,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */,
-				A636F4ED14053DEF00EDB6EF /* multimarkdown in Resources */,
+				A6D929A01406BF6100ACD722 /* redcarpet_w.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
