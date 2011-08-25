@@ -81,7 +81,7 @@
     outputPipe = [[NSPipe alloc] init];
     
     [task setLaunchPath:mdExecPath];
-    [task setArguments:[NSArray arrayWithObjects: @"--nonotes", @"--nolabels", @"--nosmart", nil]];
+    [task setArguments:[NSArray arrayWithObjects: @"-x", @"--nonotes", @"--nolabels", @"--nosmart", @"--process-html", nil]];
 
     [task setStandardOutput: outputPipe];
     [task setStandardInput:[NSPipe pipe]];
@@ -92,7 +92,7 @@
     
     fileToWrite = [inputPipe fileHandleForWriting];
 
-    [fileToWrite writeData:[inHTMLString dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileToWrite writeData:[content.message.string dataUsingEncoding:NSUTF8StringEncoding]];
 
     [fileToWrite closeFile];
     
