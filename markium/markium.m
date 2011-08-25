@@ -107,10 +107,9 @@
     
     markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
     
-    NSLog(@"MARKED:%@",markedText);
+//    NSLog(@"MARKED:%@",markedText);
     
-    markedText = [markedText stringByReplacingOccurrencesOfString:@"\r" withString:@"<br/>"];
-    
+    markedText = [markedText stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
     
     NSLog(@"MARKED (modified):\n%@\n----------\n\n",markedText);
     return markedText;
