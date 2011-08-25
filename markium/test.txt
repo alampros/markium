@@ -1,0 +1,7 @@
+Testing **some** inline
+`code` blocks
+```
+this is code
+var awesome = <br>
+```
+did it work?

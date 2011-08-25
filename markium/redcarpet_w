@@ -1,20 +1,22 @@
 #!/usr/bin/env ruby
-# Usage: redcarpet [<file>...]
-# Convert one or more Markdown files to HTML and write to standard output. With
-# no <file> or when <file> is '-', read Markdown source text from standard input.
-if ARGV.include?('--help')
-  File.read(__FILE__).split("\n").grep(/^# /).each do |line|
-    puts line[2..-1]
-  end
-  exit 0
+
+require 'rubygems'
+require 'redcarpet'
+require 'albino'
+require 'nokogiri'
+
+def markdown(text)
+  options = [:fenced_code,:no_intraemphasis,:strikethrough,:gh_blockcode,:tables]
+  html = Redcarpet.new(text, *options).to_html 
+  syntax_highlighter(html)
 end
 
-require 'redcarpet'
-STDOUT.write(Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-  {
-    :fenced_code_blocks => true,
-    :strikethrough => true,
-    :lax_html_blocks => true,
-    :tables => true,
-    :no_intra_emphasis => true
-  }).render(ARGF.read))
+def syntax_highlighter(html)
+  doc = Nokogiri::HTML(html)
+  doc.search("//pre[@lang]").each do |pre|
+    pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
+  end
+  doc.at_css("body").inner_html.to_s
+end
+
+puts markdown(ARGF.read)
