@@ -6,7 +6,9 @@ Inline [markdown][] formatting and [pygments][] syntax highlighting plugin for t
 
 ##Screenie
 
+<center>
 ![markium](http://alampros.github.com/markium/img/screen1.PNG)
+</center>
 
 ###Features
 
@@ -65,7 +67,7 @@ The `AIHTMLContentFilter` method that is used to alter HTML displayed text **onl
 
 ###CSS Additions for Syntax Highlighting
 
-If you want to enable syntax highlighting in your MessageView Style, you can copy and `#import` the `markdown_additions.css` file to your own style from:
+If you want to enable syntax highlighting in your MessageView Style, you can copy and `#import` the [markdown_additions.css](https://github.com/alampros/markium/blob/master/markium.AdiumMessageStyle/Contents/Resources/markdown_additions.css) file to your own style from:
 
 ```bash
 /markium.AdiumMessageStyle/Contents/Resources/markdown_additions.css
