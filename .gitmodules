@@ -1,0 +1,3 @@
+[submodule "markium/HTMLParser"]
+	path = markium/HTMLParser
+	url = https://github.com/zootreeves/Objective-C-HMTL-Parser.git

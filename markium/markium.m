@@ -10,7 +10,7 @@
 #import "markium.h"
 #import "CBActionSupportPlugin.h"
 #import <Adium/AIContentMessage.h>
-#import "RegexKitLite.h"
+#import "HTMLParser.h"
 
 
 @implementation markium
@@ -101,8 +101,7 @@
 	fileToWrite = [inputPipe fileHandleForWriting];
 	
 	[fileToWrite writeData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
-//	NSLog(@"INPOUT:%@",content.messageString);
-//	[fileToWrite writeData:[content.messageString dataUsingEncoding:NSUTF8StringEncoding]];
+//	NSLog(@"INPUT:%@",content.messageString);
 	
 	[fileToWrite closeFile];
 	
@@ -112,14 +111,48 @@
 	
 	NSLog(@"MARKED:%@",markedText);
 	
-	NSXMLDocument *document = [[[NSXMLDocument alloc] initWithXMLString:markedText options:NSXMLDocumentXHTMLKind error:NULL] autorelease];
-	
 //	NSLog(@"regex: \"%@\"", regexString);
 //	NSLog(@"matched: \"%@\"", matchedString);
 	
-	return markedText;
+	return [self replaceNewLinesInPreTags:markedText];
 }
 
 
+-(NSString*)replaceNewLinesInPreTags:(NSString*)string
+{
+	NSMutableString *newStr = [NSMutableString stringWithString:@""];
+	NSError *htmlParseError = nil;
+	HTMLParser *parser = [[HTMLParser alloc] initWithString:string error:&htmlParseError];
+	if (htmlParseError) {
+		NSLog(@"Error: %@", htmlParseError);
+	}
+	HTMLNode *bodyNode = [parser body];
+	[newStr appendString:[self getRawChildContents:bodyNode]];
+	
+	NSLog(@"newStr:\n%@",newStr);
+	NSArray *preNodes = [bodyNode findChildTags:@"pre"];
+	for (HTMLNode *preNode in preNodes) {
+		NSMutableString *rawcontents = [NSMutableString stringWithString:[preNode rawContents]];
+		[rawcontents replaceOccurrencesOfString:@"\n" withString:@"<br/>" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [rawcontents length])];
+		NSLog(@"replaced: \"%@\"",rawcontents);
+		[newStr replaceOccurrencesOfString:[preNode rawContents] withString:rawcontents options:NSCaseInsensitiveSearch range:NSMakeRange(0, [newStr length])];
+	}
+	NSLog(@"newStr: \"%@\"",newStr);
+	return newStr;
+}
+
+-(NSString*)getRawChildContents:(HTMLNode*)inXMLNode
+{
+	NSMutableString *newStr = [NSMutableString stringWithString:@""];
+	NSArray *children = [inXMLNode children];
+	for (HTMLNode *child in children) {
+		[newStr appendString:[child rawContents]];
+	}
+	return [NSString stringWithFormat:@"%@",newStr ];
+}
+
 
 @end
+
+
+

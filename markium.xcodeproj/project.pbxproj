@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A619A58F1408129000C1B7A1 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A619A58C1408129000C1B7A1 /* HTMLNode.m */; };
+		A619A5901408129000C1B7A1 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A619A58E1408129000C1B7A1 /* HTMLParser.m */; };
+		A619A592140812F300C1B7A1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A619A591140812F300C1B7A1 /* libxml2.dylib */; };
 		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
 		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
 		A6842ABE13FC444D00E49356 /* markium.m in Sources */ = {isa = PBXBuildFile; fileRef = A6842ABD13FC444D00E49356 /* markium.m */; };
@@ -14,6 +17,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A619A58B1408129000C1B7A1 /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLNode.h; path = HTMLParser/HTMLNode.h; sourceTree = "<group>"; };
+		A619A58C1408129000C1B7A1 /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLNode.m; path = HTMLParser/HTMLNode.m; sourceTree = "<group>"; };
+		A619A58D1408129000C1B7A1 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLParser.h; path = HTMLParser/HTMLParser.h; sourceTree = "<group>"; };
+		A619A58E1408129000C1B7A1 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLParser.m; path = HTMLParser/HTMLParser.m; sourceTree = "<group>"; };
+		A619A591140812F300C1B7A1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		A6842A8313FC33C200E49356 /* markium.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6842A8613FC33C200E49356 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A6842A8913FC33C200E49356 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -32,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A619A592140812F300C1B7A1 /* libxml2.dylib in Frameworks */,
 				A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +51,7 @@
 		A6842A7813FC33C200E49356 = {
 			isa = PBXGroup;
 			children = (
+				A619A591140812F300C1B7A1 /* libxml2.dylib */,
 				A6842ABC13FC444D00E49356 /* markium.h */,
 				A6842ABD13FC444D00E49356 /* markium.m */,
 				A6D9299F1406BF6100ACD722 /* redcarpet_w.rb */,
@@ -89,6 +99,10 @@
 		A6842A8D13FC33C200E49356 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A619A58B1408129000C1B7A1 /* HTMLNode.h */,
+				A619A58C1408129000C1B7A1 /* HTMLNode.m */,
+				A619A58D1408129000C1B7A1 /* HTMLParser.h */,
+				A619A58E1408129000C1B7A1 /* HTMLParser.m */,
 				A6842A8E13FC33C200E49356 /* markium-Info.plist */,
 				A6842A8F13FC33C200E49356 /* InfoPlist.strings */,
 				A6842A9213FC33C200E49356 /* markium-Prefix.pch */,
@@ -160,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842ABE13FC444D00E49356 /* markium.m in Sources */,
+				A619A58F1408129000C1B7A1 /* HTMLNode.m in Sources */,
+				A619A5901408129000C1B7A1 /* HTMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +220,7 @@
 					"“$(BUILT_PRODUCTS_DIR)”",
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
+					"\"/usr/include/libxml2\"",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "";
@@ -245,6 +262,7 @@
 					"“$(BUILT_PRODUCTS_DIR)”",
 					"\"$(ADIUM)/Source\"",
 					"\"$(ADIUM)/Plugins\"",
+					"\"/usr/include/libxml2\"",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "";

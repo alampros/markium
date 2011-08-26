@@ -8,10 +8,13 @@
 
 #import <Adium/AIPlugin.h>
 #import <Adium/AIContentControllerProtocol.h>
-
+#import "HTMLNode.h"
 
 
 @interface markium : AIPlugin <AIHTMLContentFilter, AIContentFilter>{
 }
+
+-(NSString*)replaceNewLinesInPreTags:(NSString*)string;
+-(NSString*)getRawChildContents:(HTMLNode*)inXMLNode;
 
 @end
