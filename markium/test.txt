@@ -1,10 +1,20 @@
 Testing **some** inline `code` blocks
 
-#Here's some regex
+#Here's some ~~HTML~~
 
+```html
+<div>
+	<pre>
+		<p>paragraph with     whitespace</p>
+		<ul>
+			<li>item</li>
+			<li>item2</li>
+		</ul>
+	</pre>
+</div>
 ```
-(<pre>[^(<pre>.+?</pre>)].+?</pre>)
-```
+
+and some javascript!
 
 ```js
 var obj = new Object();

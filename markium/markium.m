@@ -8,7 +8,6 @@
 
 #import <Adium/AIContentControllerProtocol.h>
 #import "markium.h"
-#import "CBActionSupportPlugin.h"
 #import <Adium/AIContentMessage.h>
 #import "HTMLParser.h"
 
@@ -22,7 +21,7 @@
 
 - (NSString *)pluginVersion
 {
-	return @"0.1.1";
+	return @"0.1.3";
 }
 
 - (NSString *)pluginDescription
@@ -41,14 +40,11 @@
     [adium.contentController registerContentFilter:self ofType:AIFilterMessageDisplay direction:AIFilterIncoming];
     [adium.contentController registerHTMLContentFilter:self direction:AIFilterOutgoing];
     [adium.contentController registerHTMLContentFilter:self direction:AIFilterIncoming];
-    NSLog(@"Markium registered.");
-    
 }
 
 - (void)uninstallPlugin {
 	[adium.contentController unregisterHTMLContentFilter:self];
 	[adium.contentController unregisterContentFilter:self];
-    NSLog(@"Markium uninstalled");
 }
 
 - (CGFloat)filterPriority {
@@ -62,10 +58,9 @@
 
 - (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
 {
-	NSLog(@"==================RECEIVED STRING=====================");
+//	NSLog(@"==================RECEIVED STRING=====================");
 	NSString *messageStr = [NSString stringWithString:content.messageString];
-	NSLog(@"INPUT:%@\n----------\n\n",messageStr);
-//	NSLog(@"inHTML:%@\n----------\n\n",inHTMLString);
+//	NSLog(@"INPUT:%@\n----------\n\n",messageStr);
 	
 	if ([[messageStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
 		return messageStr;
@@ -73,7 +68,6 @@
 	
 	NSBundle *pluginBundle = [NSBundle bundleWithIdentifier:@"com.alampros.markium"];
 	NSString *mdExecPath = [pluginBundle pathForResource:@"redcarpet_w" ofType:@"rb"];
-	//    NSLog(@"%@",mdExecPath);
 
 	NSTask *task;
 	NSData *markedResult;//*sortResult;
@@ -109,12 +103,14 @@
 	
 	markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
 	
-	NSLog(@"MARKED:%@",markedText);
+//	NSLog(@"MARKED:%@",markedText);
 	
-//	NSLog(@"regex: \"%@\"", regexString);
-//	NSLog(@"matched: \"%@\"", matchedString);
-	
-	return [self replaceNewLinesInPreTags:markedText];
+	[inputPipe release];
+	[outputPipe release];
+	[task release];
+	NSString *retstr = [NSString stringWithString:[self replaceNewLinesInPreTags:markedText]];
+	[markedText release];
+	return retstr;
 }
 
 
@@ -129,15 +125,15 @@
 	HTMLNode *bodyNode = [parser body];
 	[newStr appendString:[self getRawChildContents:bodyNode]];
 	
-	NSLog(@"newStr:\n%@",newStr);
+//	NSLog(@"newStr:\n%@",newStr);
 	NSArray *preNodes = [bodyNode findChildTags:@"pre"];
 	for (HTMLNode *preNode in preNodes) {
 		NSMutableString *rawcontents = [NSMutableString stringWithString:[preNode rawContents]];
 		[rawcontents replaceOccurrencesOfString:@"\n" withString:@"<br/>" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [rawcontents length])];
-		NSLog(@"replaced: \"%@\"",rawcontents);
+//		NSLog(@"replaced: \"%@\"",rawcontents);
 		[newStr replaceOccurrencesOfString:[preNode rawContents] withString:rawcontents options:NSCaseInsensitiveSearch range:NSMakeRange(0, [newStr length])];
 	}
-	NSLog(@"newStr: \"%@\"",newStr);
+//	NSLog(@"newStr: \"%@\"",newStr);
 	return newStr;
 }
 
