@@ -11,5 +11,7 @@
 
 
 
-@interface markium : AIPlugin <AIHTMLContentFilter, AIContentFilter>{}
+@interface markium : AIPlugin <AIHTMLContentFilter, AIContentFilter>{
+}
+
 @end

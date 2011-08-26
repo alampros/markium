@@ -62,61 +62,62 @@
 
 - (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
 {
-    
-    NSBundle *pluginBundle = [NSBundle bundleWithIdentifier:@"com.alampros.markium"];
-    NSString *mdExecPath = [pluginBundle pathForResource:@"redcarpet_w" ofType:@"rb"];
-//    NSLog(@"%@",mdExecPath);
-    
-    NSTask *task;
-    NSData *markedResult;//*sortResult;
-    // Data object for grabbing marked text
-    
-    NSFileHandle *fileToWrite;
-    // Handle to standard input for pipe
-    NSPipe *inputPipe, *outputPipe;
-    NSMutableString *markedText;
-
-    task = [[NSTask alloc] init];
-    inputPipe = [[NSPipe alloc] init];
-    outputPipe = [[NSPipe alloc] init];
-    
-    [task setLaunchPath:mdExecPath];
-//    [task setArguments:[NSArray arrayWithObjects: @"-x", @"--nonotes", @"--nolabels", @"--nosmart", @"--process-html", nil]];
-
-    [task setStandardOutput: outputPipe];
-    [task setStandardInput:[NSPipe pipe]];
-    [task setStandardInput: inputPipe];
-    [task setStandardError:outputPipe];
-    [task waitUntilExit];
-    [task launch];
-    
-    fileToWrite = [inputPipe fileHandleForWriting];
-    
-    NSString *messageStr = [NSString stringWithString:content.messageString];    
-    NSLog(@"INPUT:\n%@\n----------\n\n",messageStr);
-    NSLog(@"inHTML:\n%@\n----------\n\n",inHTMLString);
-    
-    [fileToWrite writeData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
-//    NSLog(@"INPOUT:%@",content.messageString);
-//    [fileToWrite writeData:[content.messageString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [fileToWrite closeFile];
-    
-    markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
-    
-    
-    markedText = [[NSMutableString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
-    
-//    NSLog(@"MARKED:%@",markedText);
+	NSString *messageStr = [NSString stringWithString:content.messageString];
+//	NSLog(@"INPUT:\n%@\n----------\n\n",messageStr);
+//	NSLog(@"inHTML:\n%@\n----------\n\n",inHTMLString);
 	
+	if (messageStr.length == 0) {
+		return messageStr;
+	}
+	
+	NSBundle *pluginBundle = [NSBundle bundleWithIdentifier:@"com.alampros.markium"];
+	NSString *mdExecPath = [pluginBundle pathForResource:@"redcarpet_w" ofType:@"rb"];
+	//    NSLog(@"%@",mdExecPath);
 
+	NSTask *task;
+	NSData *markedResult;//*sortResult;
+	// Data object for grabbing marked text
+    
+	NSFileHandle *fileToWrite;
+//	Handle to standard input for pipe
+	NSPipe *inputPipe, *outputPipe;
+	NSMutableString *markedText;
+	
+	task = [[NSTask alloc] init];
+	inputPipe = [[NSPipe alloc] init];
+	outputPipe = [[NSPipe alloc] init];
+	
+	[task setLaunchPath:mdExecPath];
+//	[task setArguments:[NSArray arrayWithObjects: @"-x", @"--nonotes", @"--nolabels", @"--nosmart", @"--process-html", nil]];
+	
+	[task setStandardOutput: outputPipe];
+	[task setStandardInput:[NSPipe pipe]];
+	[task setStandardInput: inputPipe];
+	[task setStandardError:outputPipe];
+	[task waitUntilExit];
+	[task launch];
+
+	fileToWrite = [inputPipe fileHandleForWriting];
+	
+	[fileToWrite writeData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+//	NSLog(@"INPOUT:%@",content.messageString);
+//	[fileToWrite writeData:[content.messageString dataUsingEncoding:NSUTF8StringEncoding]];
+	
+	[fileToWrite closeFile];
+	
+	markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
+	
+	markedText = [[NSMutableString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
+	
+//	NSLog(@"MARKED:%@",markedText);
+	
 	NSString *pre = [[NSString alloc] initWithString:@"<pre>"];
 	NSString *post = [[NSString alloc] initWithString:@"</pre>"];
 	
 	NSMutableArray *prePos = [[NSMutableArray alloc] init];
 	NSMutableArray *postPos = [[NSMutableArray alloc] init];
 	NSRange currentRange = NSMakeRange(0, markedText.length);
-
+	
 	currentRange = [markedText rangeOfString:pre options:NSCaseInsensitiveSearch range:currentRange];
 	while(currentRange.length > 0){
 		if(currentRange.length > 0){
@@ -155,4 +156,7 @@
 	}
 	return [[markedText copy] autorelease];
 }
+
+
+
 @end
