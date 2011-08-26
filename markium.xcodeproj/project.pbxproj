@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A619A5861407E2BF00C1B7A1 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = A619A5851407E2BF00C1B7A1 /* RegexKitLite.m */; };
-		A619A58A1407F0BD00C1B7A1 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A619A5881407F09200C1B7A1 /* libicucore.dylib */; };
 		A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6842A8613FC33C200E49356 /* Cocoa.framework */; };
 		A6842A9113FC33C200E49356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6842A8F13FC33C200E49356 /* InfoPlist.strings */; };
 		A6842ABE13FC444D00E49356 /* markium.m in Sources */ = {isa = PBXBuildFile; fileRef = A6842ABD13FC444D00E49356 /* markium.m */; };
@@ -16,9 +14,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A619A5841407E2BF00C1B7A1 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = RegexKitLite/RegexKitLite.h; sourceTree = "<group>"; };
-		A619A5851407E2BF00C1B7A1 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = RegexKitLite/RegexKitLite.m; sourceTree = "<group>"; };
-		A619A5881407F09200C1B7A1 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A6842A8313FC33C200E49356 /* markium.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markium.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6842A8613FC33C200E49356 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A6842A8913FC33C200E49356 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -37,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A619A58A1407F0BD00C1B7A1 /* libicucore.dylib in Frameworks */,
 				A6842A8713FC33C200E49356 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +42,6 @@
 		A6842A7813FC33C200E49356 = {
 			isa = PBXGroup;
 			children = (
-				A619A5881407F09200C1B7A1 /* libicucore.dylib */,
 				A6842ABC13FC444D00E49356 /* markium.h */,
 				A6842ABD13FC444D00E49356 /* markium.m */,
 				A6D9299F1406BF6100ACD722 /* redcarpet_w.rb */,
@@ -88,8 +81,6 @@
 		A6842A8C13FC33C200E49356 /* markium */ = {
 			isa = PBXGroup;
 			children = (
-				A619A5841407E2BF00C1B7A1 /* RegexKitLite.h */,
-				A619A5851407E2BF00C1B7A1 /* RegexKitLite.m */,
 				A6842A8D13FC33C200E49356 /* Supporting Files */,
 			);
 			path = markium;
@@ -169,7 +160,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6842ABE13FC444D00E49356 /* markium.m in Sources */,
-				A619A5861407E2BF00C1B7A1 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +287,6 @@
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-licucore",
 					"-undefined",
 					dynamic_lookup,
 				);
@@ -329,7 +318,6 @@
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-licucore",
 					"-undefined",
 					dynamic_lookup,
 				);

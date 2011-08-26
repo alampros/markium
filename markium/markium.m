@@ -112,10 +112,10 @@
 	
 	NSLog(@"MARKED:%@",markedText);
 	
-	NSString *regexString = @"(?is:<pre>[^{<pre>}].+?</pre>)";
-	NSString *matchedString = [markedText stringByMatching:regexString];
-	NSLog(@"regex: \"%@\"", regexString);
-	NSLog(@"matched: \"%@\"", matchedString);
+	NSXMLDocument *document = [[[NSXMLDocument alloc] initWithXMLString:markedText options:NSXMLDocumentXHTMLKind error:NULL] autorelease];
+	
+//	NSLog(@"regex: \"%@\"", regexString);
+//	NSLog(@"matched: \"%@\"", matchedString);
 	
 	return markedText;
 }
