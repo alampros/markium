@@ -12,9 +12,9 @@ var obj = new Object();
 obj.prop = function(param, param2) {
 	return true;
 }
-'''
+```
 
-'''js
+```js
 if (typeof obj === "undefined") {
 	alert("something is really wrong.");
 } else {
