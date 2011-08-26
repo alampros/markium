@@ -10,7 +10,7 @@
 #import "markium.h"
 #import "CBActionSupportPlugin.h"
 #import <Adium/AIContentMessage.h>
-
+#import "RegexKitLite.h"
 
 
 @implementation markium
@@ -62,11 +62,12 @@
 
 - (NSString *)filterHTMLString:(NSString *)inHTMLString content:(AIContentObject*)content;
 {
+	NSLog(@"==================RECEIVED STRING=====================");
 	NSString *messageStr = [NSString stringWithString:content.messageString];
-//	NSLog(@"INPUT:\n%@\n----------\n\n",messageStr);
-//	NSLog(@"inHTML:\n%@\n----------\n\n",inHTMLString);
+	NSLog(@"INPUT:%@\n----------\n\n",messageStr);
+//	NSLog(@"inHTML:%@\n----------\n\n",inHTMLString);
 	
-	if (messageStr.length == 0) {
+	if ([[messageStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
 		return messageStr;
 	}
 	
@@ -81,7 +82,7 @@
 	NSFileHandle *fileToWrite;
 //	Handle to standard input for pipe
 	NSPipe *inputPipe, *outputPipe;
-	NSMutableString *markedText;
+	NSString *markedText;
 	
 	task = [[NSTask alloc] init];
 	inputPipe = [[NSPipe alloc] init];
@@ -107,54 +108,16 @@
 	
 	markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
 	
-	markedText = [[NSMutableString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
+	markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
 	
-//	NSLog(@"MARKED:%@",markedText);
+	NSLog(@"MARKED:%@",markedText);
 	
-	NSString *pre = [[NSString alloc] initWithString:@"<pre>"];
-	NSString *post = [[NSString alloc] initWithString:@"</pre>"];
+	NSString *regexString = @"(?is:<pre>[^{<pre>}].+?</pre>)";
+	NSString *matchedString = [markedText stringByMatching:regexString];
+	NSLog(@"regex: \"%@\"", regexString);
+	NSLog(@"matched: \"%@\"", matchedString);
 	
-	NSMutableArray *prePos = [[NSMutableArray alloc] init];
-	NSMutableArray *postPos = [[NSMutableArray alloc] init];
-	NSRange currentRange = NSMakeRange(0, markedText.length);
-	
-	currentRange = [markedText rangeOfString:pre options:NSCaseInsensitiveSearch range:currentRange];
-	while(currentRange.length > 0){
-		if(currentRange.length > 0){
-			currentRange = NSMakeRange(currentRange.location + pre.length, currentRange.length - pre.length);
-		}
-		
-		[prePos addObject: [NSNumber numberWithInteger:currentRange.location]];
-		
-		currentRange = [markedText rangeOfString:pre options:NSCaseInsensitiveSearch range:currentRange];
-	}
-	
-	currentRange = NSMakeRange(0, markedText.length);
-	currentRange = [markedText rangeOfString:post options:NSCaseInsensitiveSearch range:currentRange];
-	while(currentRange.length > 0) {
-		if(currentRange.length > 0) {
-			currentRange = NSMakeRange(currentRange.location + post.length, currentRange.length - post.length);
-		}
-		
-		[postPos addObject: [NSNumber numberWithInteger:currentRange.location]];
-		
-		currentRange = [markedText rangeOfString:post options:NSCaseInsensitiveSearch range:currentRange];
-	}
-	
-	
-	if([prePos count] > 0 && [postPos count] > 0) {
-		int p1 = [[prePos objectAtIndex:0] intValue];
-		int p2 = [[postPos objectAtIndex:0] intValue];
-		NSNumber *len = [[NSNumber alloc] initWithInt:(p2-p1)];
-		NSRange someRange = NSMakeRange([[prePos objectAtIndex:0] unsignedIntegerValue], [len unsignedIntegerValue]);
-		
-		NSUInteger replacementsCount = [markedText replaceOccurrencesOfString:@"\n" withString:@"<br/>" options:NSCaseInsensitiveSearch range:someRange];
-		
-		NSLog(@"Replacements Count:\n%lu\n---------\n",replacementsCount);
-		
-		NSLog(@"REPLACED:\n%@\n---------\n",markedText);
-	}
-	return [[markedText copy] autorelease];
+	return markedText;
 }
 
 

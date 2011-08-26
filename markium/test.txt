@@ -1,23 +1,14 @@
 Testing **some** inline `code` blocks
 
-```js
-this is code
-var awesome = <br>
-```
+#Here's some regex
 
-did it work?
+```
+(<pre>[^(<pre>.+?</pre>)].+?</pre>)
+```
 
 ```js
 var obj = new Object();
 obj.prop = function(param, param2) {
 	return true;
-}
-```
-
-```js
-if (typeof obj === "undefined") {
-	alert("something is really wrong.");
-} else {
-	doSomethingAWESOME("!");
 }
 ```
