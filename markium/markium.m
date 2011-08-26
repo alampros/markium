@@ -74,7 +74,7 @@
     NSFileHandle *fileToWrite;
     // Handle to standard input for pipe
     NSPipe *inputPipe, *outputPipe;
-    NSString *markedText;
+    NSMutableString *markedText;
 
     task = [[NSTask alloc] init];
     inputPipe = [[NSPipe alloc] init];
@@ -105,16 +105,54 @@
     markedResult = [[outputPipe fileHandleForReading] readDataToEndOfFile];
     
     
-    markedText = [[NSString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
+    markedText = [[NSMutableString alloc] initWithData: markedResult encoding: NSUTF8StringEncoding];
     
 //    NSLog(@"MARKED:%@",markedText);
-    
-    markedText = [markedText stringByReplacingOccurrencesOfString:@"\n" withString:@"<br/>"];
-    
-    NSLog(@"MARKED (modified):\n%@\n----------\n\n",markedText);
-    return markedText;
+	
+
+	NSString *pre = [[NSString alloc] initWithString:@"<pre>"];
+	NSString *post = [[NSString alloc] initWithString:@"</pre>"];
+	
+	NSMutableArray *prePos = [[NSMutableArray alloc] init];
+	NSMutableArray *postPos = [[NSMutableArray alloc] init];
+	NSRange currentRange = NSMakeRange(0, markedText.length);
+
+	currentRange = [markedText rangeOfString:pre options:NSCaseInsensitiveSearch range:currentRange];
+	while(currentRange.length > 0){
+		if(currentRange.length > 0){
+			currentRange = NSMakeRange(currentRange.location + pre.length, currentRange.length - pre.length);
+		}
+		
+		[prePos addObject: [NSNumber numberWithInteger:currentRange.location]];
+		
+		currentRange = [markedText rangeOfString:pre options:NSCaseInsensitiveSearch range:currentRange];
+	}
+	
+	currentRange = NSMakeRange(0, markedText.length);
+	currentRange = [markedText rangeOfString:post options:NSCaseInsensitiveSearch range:currentRange];
+	while(currentRange.length > 0) {
+		if(currentRange.length > 0) {
+			currentRange = NSMakeRange(currentRange.location + post.length, currentRange.length - post.length);
+		}
+		
+		[postPos addObject: [NSNumber numberWithInteger:currentRange.location]];
+		
+		currentRange = [markedText rangeOfString:post options:NSCaseInsensitiveSearch range:currentRange];
+	}
+	
+	
+	if([prePos count] > 0 && [postPos count] > 0) {
+		int p1 = [[prePos objectAtIndex:0] intValue];
+		int p2 = [[postPos objectAtIndex:0] intValue];
+		NSNumber *len = [[NSNumber alloc] initWithInt:(p2-p1)];
+		NSRange someRange = NSMakeRange([[prePos objectAtIndex:0] unsignedIntegerValue], [len unsignedIntegerValue]);
+		
+		NSUInteger replacementsCount = [markedText replaceOccurrencesOfString:@"\n" withString:@"<br/>" options:NSCaseInsensitiveSearch range:someRange];
+		
+		NSLog(@"Replacements Count:\n%lu\n---------\n",replacementsCount);
+		
+		NSLog(@"REPLACED:\n%@\n---------\n",markedText);
+	}
+	return [[markedText copy] autorelease];
 }
-
-
-
 @end

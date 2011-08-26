@@ -1,8 +1,10 @@
 Testing **some** inline `code` blocks
-```
+
+```js
 this is code
 var awesome = <br>
 ```
+
 did it work?
 
 ```js
@@ -10,6 +12,9 @@ var obj = new Object();
 obj.prop = function(param, param2) {
 	return true;
 }
+'''
+
+'''js
 if (typeof obj === "undefined") {
 	alert("something is really wrong.");
 } else {
