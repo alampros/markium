@@ -6,7 +6,7 @@ require 'albino'
 require 'nokogiri'
 
 def markdown(text)
-  options = [:fenced_code,:no_intraemphasis,:strikethrough,:gh_blockcode,:tables,:hard_wrap,:lax_htmlblock,:xhtml]
+  options = [:fenced_code,:no_intraemphasis,:strikethrough,:gh_blockcode,:tables,:hard_wrap,:lax_htmlblock,:xhtml,:autolink]
   html = Redcarpet.new(text, *options).to_html 
   syntax_highlighter(html)
 end
