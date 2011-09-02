@@ -13,7 +13,7 @@ Inline [markdown][] formatting and [pygments][] syntax highlighting plugin for t
 ###Features
 
 * Markdown formatting and code syntax highlighting in your chat windows
-* Inline `code` elements and quit **bold**, *italic* and ~~strikethrough~~ formatting
+* Inline `code` elements and quick **bold**, *italic* and ~~strikethrough~~ formatting
 * Uses [redcarpet][] Yay! Github-flavored Markdown!
 * Fenced code blocks (<code>```</code>: triple-tick) with language specification
 
@@ -97,12 +97,13 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [markdown]: http://daringfireball.net/projects/markdown/
 [pygments]: http://pygments.org/
 [Adium]: http://adium.im/
-[GFM]: github.github.com/github-flavored-markdown/
+[GFM]: http://github.github.com/github-flavored-markdown/
 [redcarpet]: https://github.com/tanoku/redcarpet
 [Gaia]: http://www.adiumxtras.com/index.php?a=xtras&xtra_id=4499
 [HTMLParser]: https://github.com/zootreeves/Objective-C-HMTL-Parser
 [albino]: https://github.com/github/albino
 [nokogiri]: https://github.com/tenderlove/nokogiri
+
 
 
 
