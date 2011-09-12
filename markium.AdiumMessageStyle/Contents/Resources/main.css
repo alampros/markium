@@ -1,338 +1,273 @@
-/*Project:GAIA MessageView */
-
 /*
-Created by Florian Pichler (pichfl@einserver.de)
 
-History:
-2007-07-22 - v1.0	//Final Release
-2007-07-21 - v0.5	//Bugfixes
-2007-07-21 - v0.4	//First Release
-2007-07-21 - v0.3	//Link-Buttons
-2007-07-20 - v0.2 	//Emoticons, Header
-2007-07-19 - v0.1 	//First Beta
+	----------------------------------------
+	| Mnmlsm is made by Florian Pichler    |
+	----------------------------------------
+	| (c) 2010, All rights reserved, es&es |
+	----------------------------------------
+	| somewhatcreative.com                 |
+	----------------------------------------
+
 */
 
-/*Global Reset*/
+/* Useful general */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td{
-	margin:0;
-	padding:0;
-	border:0;
-	outline:0;
-	font-weight:inherit;
-	font-style:inherit;
-	font-size:100%;
-	font-family:inherit;
-	vertical-align:baseline;
-}
-
-:focus{
-	outline:0;
-}
+html,body{
+	margin: 0;
+	padding: 0;
+	border: 0;}
 
 body{
-	line-height:1.5em;
-	color:#333;
-	background:#fff;
-}
+	color: #333;
+	margin: 0;
+	line-height: 1.5em;
+	word-wrap: break-word;
+	word-break: break-word;
+	-webkit-text-rendering: optimizeLegibility;}
 
-ol, ul{
-	list-style:none;
-}
+#Chat{
+	overflow: hidden;}
 
-table{
-	border-collapse:separate;
-	border-spacing:0;
-}
+img:not(.icn){
+	position: relative;
+	vertical-align: middle;}
 
-caption, th, td{
-	text-align:left;
-	font-weight:normal;
-}
+img.emoticon{
+	background: transparent;
+	border: 0;}
 
-blockquote:before, blockquote:after,
-q:before, q:after{
-	content:"";
-}
+img.scaledToFitImage{
+	width: auto;}
 
-blockquote, q{
-	quotes:"" "";
-}
+/* Links */
 
-a,
 a:link{
-	color:inherit;
-	text-decoration:underline;
-}
+	color: #2a6fe8;
+	text-decoration: none;}
 
 a:visited{
-	
-}
+	color: #4467a4;}
 
-a:focus{
-	
-}
-
+a:focus,
 a:hover{
-	
-}
+	outline: 0;
+	color: #6aa0ff;
+	text-decoration: underline;}
 
 a:active{
+	color: #4467a4;}
+
+/* Header */
+
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 0.5em 1em;
+	background: rgba(0,0,0,0.65);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.5))) 0 0 no-repeat;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 0.85em;
+	z-index: 1000;}
+
+/* Messages */
+
+.msg{
+	position: relative;
+	overflow: hidden;}
+
+.history{
+	opacity: 0.45;
+	background: rgba(0,0,0,0.01);}
 	
-}
-
-/*Header*/
-
-#wrap{
-	position:relative;
-}
-
-#header{
-	position:fixed;
-	top:0;
-	right:0;
-	left:0;
-	min-height:90px;
-	background:url(images/header.bg.png) 0 0 repeat-x;
-	z-index:500;
-	width:100%;
-}
-
-#header div.inner{
-	position:relative;
-	min-height:90px;
-	background:url(images/header.ornament.png) 0 0 no-repeat;
-}
-
-#header div.birdy{
-	position:relative;
-	min-height:88px;
-	margin:0px 0;
-	padding:1px 0;
-	background:url(images/header.birdy.png) 100% 0 no-repeat;
-}
-
-img#bar,
-#stopclickingme{
-	width:100%;
-	height:16px;
-	position:absolute;
-	top:0;
-	right:0;
-	left:0;
-	z-index:900;
-}
-
-#stopclickingme{
-	background:url(images/stopclickingme.png) 0 0 repeat;
-	z-index:1000;
+.outgoing{
+	background: rgba(0,0,0,0.015);}
 	
-}
+.history.outgoing{
+	background: rgba(0,0,0,0.025);}
 
-#header h1{
-	margin:-1px 0;
-	padding:30px 25px 0;
-	font-size:18px;
-	line-height:1em;
-	font-family:"HelveticaNeue-Light", "Helvetica Neue", Helvetica;
-	color:#616161;
-	text-shadow:#989898 0px 0px 5px;
-}
+.msg .icn{
+	position: absolute;
+	z-index: 10;
+	display: block;
+	width: 2.18em;
+	height: 2.18em;
+	left: 1em;
+	top: 0.3em;
+	background: #fff;
+	-webkit-border-radius: 0.4em;}
 
-/*Messages General*/
+.msg .icn[src*="buddy_icon"]{
+	display: none;}
 
-.message{
-	position:relative;
-	margin:0;
-	padding:0;
-}
+.msg .msg{
+	border-top: 1px solid rgba(0,0,0,0.06);
+	padding: 0.55em 1em 0.5em 4.18em;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.04)), color-stop(0.35, rgba(0,0,0,0))) 0 0 no-repeat;}
 
-.message.old{
-	position:relative;
-	margin:0;
-	padding:0;
-	opacity:.33;
-}
+.showIcons .sender{
+	display: none;}
 
-.message .wrap{
-	padding:1px 0;
-}
+.hideIcons .msg{
+	padding-right: 1.5em;
+	padding-left: 1.5em;}
 
-.message .bottom{
-	padding:0 25px;
-}
+.hideIcons .sender{
+	margin: 0 -0.6em 3px;
+	padding: 0 0.6em;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 0.85em;
+	letter-spacing: 1px;
+	border-bottom: 1px solid rgba(0,0,0,0.1);}
 
-.message .inner{
-	position:relative;
-	margin:.6em 0 .6em;
-	padding:.01em 0px .01em;
-}
+.node{
+	display: -webkit-box;}
 
-.message .icon{
-	position:absolute;
-	top:.35em;
-	margin:0;
-	padding:0;
-	line-height:6px;
-}
+.text, .msg time{
+	-webkit-box-pack: left;}
 
-.message .icon img.simple{
-	display:inline;
-}
+.text{
+	-webkit-box-flex: 1;}
 
-.message .icon img.user{
-	display:none;
-}
+.node + .node{
+	margin-top: 0.46em;}
 
-.message .text,
+.time{
+	-webkit-box-flex: 0;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	-webkit-transition: opacity 150ms ease-in-out;
+	opacity: 0;
+	text-align: right;
+	text-shadow: 0 1px 1px #fff;
+	color: #aaa;
+	font-size: 0.85em;}
+
+.node:hover .time, .sender+.node .time{
+	opacity: 1;}
+
+/* Status */
+
+.status{
+	padding: 0.25em 1em 0.25em 4.18em;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.10)), to(rgba(0,0,0,0.03))) 0 0 no-repeat;
+	color: #737373;
+	border-top: 1px solid rgba(0,0,0,0.15);}
+
+.status.hideIcons{
+	padding-right: 1.5em;
+	padding-left: 1.5em;}
+
 .status .text{
-	margin:0 62px 0 34px;
-	padding:0;
-	overflow:auto;
-	border:0;
-}
-
-.message .text img{
-	line-height:1em;
-	vertical-align:bottom;
-}
-
-.message .time,
-.status .time{
-	width:62px;
-	margin:0;
-	padding:0;
-	position:absolute;
-	top:0em;
-	right:-25px;
-	overflow:hidden;
-	background:transparent;
-}
-
-.clear{
-	float:none;
-	clear:both;
-	width:0;
-	overflow:hidden;
-	background:transparent;
-}
-
-/*INCOMING!!!!111einseinsself //Sry, musste einfach sein*/
-
-.in{
-	z-index:300;
-	color:#717171;
-	background:#fafafa;
-}
-
-.in .top{
-	margin:-3px 0 0;
-	padding:3px 0 0;
-	background:url(images/in.top.png) 0 0 repeat-x;
-}
-
-.in .bottom{
-	margin:0 0 -3px;
-	padding:0 25px 3px;
-	background:url(images/in.bottom.png) 0 100% repeat-x;
-}
-
-.in .time{
-	color:#c8c8c8;
-}
-
-/*Outgoing*/
-
-.out{
-	margin:-1px 0 0;
-	padding:1px 0 0;
-	z-index:100;
-	color:#565656;
-	background:#f5f5f5 url(images/out.png) 0 0 repeat-x;
-}
-
-.out .bottom{
-	margin:0 0 -1px;
-	padding:1px 25px 2px;
-	background:url(images/out.bottom.png) 0 100% repeat-x;
-}
-
-.out .time{
-	color:#ababab;
-}
-
-/*Status*/
-
-div.status{
-	position:relative;
-	margin:0;
-	padding:2px 25px 3px;
-	z-index:200;
-	border:0;
-	background:#0e0e0e url(images/status.png) 0 0 repeat-x;
-	color:#fff;
-	font-size:11px;
-	font-family:"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-}
-
-.status h2{
-	color:#93ece8;
-}
+	font-size: 0.9em;
+	text-shadow: 0 1px 1px #fff;}
 
 .status .time{
-	top:2px;
-	right:0;
-	color:#fafafa;
+	opacity: 1;
+	color: #858585;}
+
+.status + .msg .msg{
+	border-color: rgba(0,0,0,0.07);}
+
+.status + .status{
+	border-top: 0;
+	background: rgba(0,0,0,0.03);}
+
+/* Transfers */
+
+.transfer{
+	padding: 0.5em 1em 0.5em 4.18em;}
+
+.transfer .text{
+	font-size: 1em;
+	font-weight: bold;}
+
+.transfer + .status{
+	display: none;}
+
+.actions{
+	display: -webkit-box;
+	margin: 0 0.9em 0 -1.1em;
+	padding: 0em 1em;
+	white-space: nowrap;
+	overflow: hidden;}
+
+.actions button, 
+div.actions div.clicked button:active,
+div.actions div.clicked button:hover{
+	z-index: 4;
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 0.1em 1.5em;
+	height: 2em;
+	line-height: 1.5em;
+	border: 0px solid rgba(190,190,190,1);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), to(rgba(220,220,220,1)), color-stop(0.2, rgba(240,240,240,1))) 0 0 no-repeat;
+	-webkit-box-shadow: 0 0.1em 0.2em rgba(0,0,0,0.15), inset 0 0 0.1em 1px rgba(190,190,190,1);
+	text-shadow: 0 1px 2px #fff;
+	color: #535353;
+	-webkit-border-radius: 0.5em;}
+
+.actions button:hover{
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,1)), to(rgba(220,220,220,1))) 0 0 no-repeat;
+	border-color: rgba(74,138,250,1);}
+
+div.actions button:active{
+	-webkit-box-shadow: 0 0.1em 0.2em rgba(0,0,0,0.15), inset 0 0.1em 0.3em 0 rgba(0,0,0,0.4);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(210,210,210,1)), to(rgba(160,160,160,1))) 0 0 no-repeat;}
+
+.actions div{
+	display: -webkit-box;
+	position: relative;
+	overflow: hidden;
+	margin: 0 0.4em 0 0;
+	padding: 0.5em 1px 0.5em 0;
+	-webkit-box-align: start;
+	-webkit-box-orient: horizontal;}
+
+.actions .wrap{
+	margin: 0;
+	padding: 0;}
+
+.wrap.clicked{
+	opacity: 0.3;
+	-webkit-animation-name: hide;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: linear;}
+
+@-webkit-keyframes hide{
+	0% { opacity: 1.0;}
+	99%{ opacity: 0.3;}
+	100%{ opacity: 0.3;}
 }
 
-a.button{
-	display:inline-block;
-	position:relative;
-	top:1em;
-	margin:-1em 0 0;
-	line-height:20px;
+@media all and (max-width: 24em){
+	.actions{
+		overflow: hidden;
+		display: block;}
+
+	.actions .info{
+		padding-bottom: 0;}
+	
+	.actions .wrap{
+		float: right;
+		padding-top: 0;}
+	
+	.actions div{
+		display: block;}
+	
+	.actions div.save, .actions div.cancel{
+		float: left;}
 }
 
-a.button span.js{
-	display:inline-block;
-	width:30px;
-	height:20px;
-	overflow:hidden;
-	background:url(images/url.png) 0 0 no-repeat;
-}
-
-a.button:active span.js{
-	background:url(images/url.click.png) 0 0 no-repeat;
-}
-
-a.button span.rep{
-	opacity:0;
-}
-
-.tool-tip{
-	z-index:1000;
-	color:#fff;
-	font-weight:bold;
-	font-size:10px;
-}
-
-.tool-title{
-	color:#93ece8;
-	padding:1px 3px 0;
-	background:url(images/tool-tip.png) 100% 0 no-repeat;
-	text-shadow:#000 0 1px 1px;
-}
-
-.tool-text{
-	padding:0 3px 1px;
-	background:url(images/tool-tip.png) 0% 100% no-repeat;
-	text-shadow:#000 0 1px 1px;
-}
-
+.actions .info{
+	-webkit-box-flex: 1;
+	white-space: normal;
+	text-align: left;}
