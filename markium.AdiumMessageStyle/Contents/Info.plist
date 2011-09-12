@@ -8,27 +8,27 @@
 	<string>Markium Adium Message Style</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.adiumx.alampros.markium.style</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>0.1</string>
 	<key>CFBundleName</key>
 	<string>markium</string>
 	<key>CFBundlePackageType</key>
 	<string>AdIM</string>
+	<key>CFBundleGetInfoString</key>
+	<string>2.1</string>
+	<key>OriginalAuthor</key>
+	<string>pichfl</string>
+	<key>ModifyingAuthor</key>
+	<string>alampros</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>1.0</string>
 	<key>DefaultFontFamily</key>
 	<string>Lucida Grande</string>
 	<key>DefaultFontSize</key>
 	<integer>11</integer>
+	<key>DefaultVariant</key>
+	<string>Alpha</string>
 	<key>MessageViewVersion</key>
 	<integer>4</integer>
 	<key>ShowsUserIcons</key>
-	<true />
-	<key>DefaultVariant</key>
-	<string>3.2 Big Header with User Icons and Hover-Time</string>
-	<key>AllowTextColors</key>
 	<true/>
-	<key>DisableCustomBackground</key>
-	<true />
-	<key>DefaultBackgroundColor</key>
-	<string>FFFFFF</string>
 </dict>
 </plist>
