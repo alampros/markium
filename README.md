@@ -26,14 +26,14 @@ I'm a web developer. I chat a lot with other developers. Textual conversation an
 
 Like I said, I'm a web developer (+designer) - this is my first dive into ObjC and the water is cold. I am 100% certain there are better ways to get the results (probably better results, too); I'm just not good enough. Please – by all means – fork me and right all the evils I have committed!
 
-##On the Shoulders of Abnormally Tall Projects
+##Borrowed Projects
 
-I just put together these awesomely cool pieces:
+Awesomely cool projects borrowed from:
 
 * [Adium][]
 * [redcarpet][]: Github-flavored markdown
 * [pygments][]: Syntax highlighting
-* [Gaia][]: MessageView Style for Adium
+* [Mnmlsm][]: Florian Pichler's beautiful MessageView Style
 * [HTMLParser][]: Ben Reeves' ObjC library
 
 #Installation
@@ -99,7 +99,7 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [Adium]: http://adium.im/
 [GFM]: http://github.github.com/github-flavored-markdown/
 [redcarpet]: https://github.com/tanoku/redcarpet
-[Gaia]: http://www.adiumxtras.com/index.php?a=xtras&xtra_id=4499
+[Mnmlsm]: http://www.adiumxtras.com/index.php?a=xtras&xtra_id=7780
 [HTMLParser]: https://github.com/zootreeves/Objective-C-HMTL-Parser
 [albino]: https://github.com/github/albino
 [nokogiri]: https://github.com/tenderlove/nokogiri
