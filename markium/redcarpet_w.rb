@@ -1,22 +1,49 @@
-#!/usr/bin/env ruby
-
+#!/usr/bin/ruby
 require 'rubygems'
 require 'redcarpet'
-require 'albino'
-require 'nokogiri'
+require 'Pygments'
 
-def markdown(text)
-  options = [:fenced_code,:no_intraemphasis,:strikethrough,:gh_blockcode,:tables,:hard_wrap,:lax_htmlblock,:xhtml,:autolink]
-  html = Redcarpet.new(text, *options).to_html 
-  syntax_highlighter(html)
+class HTMLwithPygments < Redcarpet::Render::XHTML
+	# def doc_header()
+	#	puts Pygments.styles()
+	# monokai
+	# manni
+	# perldoc
+	# borland
+	# colorful
+	# default
+	# murphy
+	# vs
+	# trac
+	# tango
+	# fruity
+	# autumn
+	# bw
+	# emacs
+	# vim
+	# pastie
+	# friendly
+	# native
+	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
+	# end
+	def block_code(code, language)
+		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
+	end
 end
 
-def syntax_highlighter(html)
-  doc = Nokogiri::HTML(html)
-  doc.search("//pre[@lang]").each do |pre|
-    pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
-  end
-  doc.at_css("body").inner_html.to_s
+
+def fromMarkdown(text)
+	markdown = Redcarpet::Markdown.new(HTMLwithPygments,
+						     :fenced_code_blocks => true,
+						     :no_intra_emphasis => true,
+						     :autolink => true,
+						     :strikethrough => true,
+						     :lax_html_blocks => true,
+						     :superscript => true,
+						     :hard_wrap => true,
+						     :tables => true,
+						     :xhtml => true)
+	markdown.render(text)
 end
 
-puts markdown(ARGF.read)
+puts fromMarkdown(ARGF.read)
