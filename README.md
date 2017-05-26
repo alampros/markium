@@ -2,15 +2,17 @@
 
 Inline [markdown][] formatting and [pygments][] syntax highlighting plugin for the [Adium][] chat client.
 
+# 🚨 **WARNING**: *THIS PROJECT IS DEAD* 🚨
+
+---
+
 >**FAIR WARNING:** I don't claim to know what the hell I'm doing in Objective-C *or* Cocoa or even XCode. Use at your own risk.
 
-##Screenie
+## Screenie
 
-<center>
 ![markium](http://alampros.github.com/markium/img/screen1.PNG)
-</center>
 
-###Features
+### Features
 
 * Markdown formatting and code syntax highlighting in your chat windows
 * Inline `code` elements and quick **bold**, *italic* and ~~strikethrough~~ formatting
@@ -18,15 +20,15 @@ Inline [markdown][] formatting and [pygments][] syntax highlighting plugin for t
 * Fenced code blocks (<code>```</code>: triple-tick) with language specification
 
 
-##Why?
+## Why?
 
 I'm a web developer. I chat a lot with other developers. Textual conversation and programming vocabulary can get very dicey ("put this before this. No, *that*, not *this*!"). Inline `code` references and [GFM][] make the task of talking about `code` a *whole lot* **easier**.
 
-##Waaay Beta
+## Waaay Beta
 
 Like I said, I'm a web developer (+designer) - this is my first dive into ObjC and the water is cold. I am 100% certain there are better ways to get the results (probably better results, too); I'm just not good enough. Please – by all means – fork me and right all the evils I have committed!
 
-##Borrowed Projects
+## Borrowed Projects
 
 Awesomely cool projects borrowed from:
 
@@ -36,7 +38,7 @@ Awesomely cool projects borrowed from:
 * [Mnmlsm][]: Florian Pichler's beautiful MessageView Style
 * [HTMLParser][]: Ben Reeves' ObjC library
 
-#Installation
+# Installation
 
 Quite a few nasty prerequisites, but the basics go like this:
 
@@ -54,7 +56,7 @@ Quite a few nasty prerequisites, but the basics go like this:
 4. Open `bin/markium.AdiumPlugin` to install the ContentFilter plugin (requires Adium restart)
 5. Activate the MessageView Style `Preferences->Messages` and select one of the `3.x` variants. Make sure that *"Show received message fonts"* and *"Show received message colors"* are both **enabled**.
 
-#Using with Other Styles
+# Using with Other Styles
 
 The `AIHTMLContentFilter` method that is used to alter HTML displayed text **only works with certain styles**. The `MessageViewVersion` (listed in the view's plist) value for the style must be set to `4`. Don't ask me why, there is almost no documentation on the different `MessageViewVersion`s (I had to traipse through Adium's source to figure it out). If you want to see if your favorite MessageView Style will support it, right click on the package (usually located in `~/Library/Application Support/Adium 2.0/Message Styles/`), select *"Show Package Contents"* and open `Content/info.plist` in an editor. Look for:
 
@@ -65,7 +67,7 @@ The `AIHTMLContentFilter` method that is used to alter HTML displayed text **onl
 ...
 ```
 
-###CSS Additions for Syntax Highlighting
+### CSS Additions for Syntax Highlighting
 
 If you want to enable syntax highlighting in your MessageView Style, you can copy and `#import` the [markdown_additions.css](https://github.com/alampros/markium/blob/master/markium.AdiumMessageStyle/Contents/Resources/markdown_additions.css) file to your own style from:
 
@@ -73,7 +75,7 @@ If you want to enable syntax highlighting in your MessageView Style, you can cop
 /markium.AdiumMessageStyle/Contents/Resources/markdown_additions.css
 ```
 
-#To Do
+# To Do
 
 1. Get help making more of this thing self-contained and less reliant on other packages/languages.
 2. Add markdown additions css to more MessageView Styles
@@ -81,7 +83,7 @@ If you want to enable syntax highlighting in your MessageView Style, you can cop
 4. Unit tests
 
 
-##License
+## License
 
 (The MIT License)
 
